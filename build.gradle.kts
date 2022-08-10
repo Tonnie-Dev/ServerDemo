@@ -1,6 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+
+    application
     kotlin("jvm") version "1.7.10"
 }
 
@@ -8,6 +10,8 @@ group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
+
+    //we have our Ktor dependencies inside of maven
     mavenCentral()
 }
 
