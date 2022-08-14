@@ -87,7 +87,7 @@ fun Application.module( ){
         }
 
 
-        static {
+        static(remotePath = "assets") {
 
             resources("static")
         }
