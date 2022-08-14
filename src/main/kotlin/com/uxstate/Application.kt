@@ -13,11 +13,11 @@ import io.ktor.server.html.*
 import io.ktor.server.http.content.*
 import kotlinx.html.*
 
-fun main(){
+fun main() {
 
-    embeddedServer(factory = Netty, port = 8080){
-module()
-        install(ContentNegotiation){
+    embeddedServer(factory = Netty, port = 8080) {
+        module()
+        install(ContentNegotiation) {
 
             json()
         }
@@ -29,15 +29,14 @@ module()
 
 
 //Our engineMain will use this module to respond to clients
-fun Application.module( ){
-
+fun Application.module() {
 
 
     routing {
 
         //get {} is an extension function on Route class under the Routing plugin
         //server root path - 1st endpoint
-        get (path = "/"){
+        get(path = "/") {
 
             //define how to respond to user's requests
             call.respondText("Hello ")
@@ -49,7 +48,7 @@ fun Application.module( ){
             val username = call.parameters["username"]
             val header = call.request.headers["Connection"]
 
-            if (username =="Admin"){
+            if (username == "Admin") {
 
                 call.response.header("CustomHeader", "Admin")
                 call.respond(message = "Hello Admin", status = HttpStatusCode.OK)
@@ -57,7 +56,7 @@ fun Application.module( ){
             call.respondText("Greeting, $username with header: $header")
         }
 
-        get(path = "/user"){
+        get(path = "/user") {
 
             val name = call.request.queryParameters["name"]
             val age = call.request.queryParameters["age"]
@@ -65,48 +64,62 @@ fun Application.module( ){
             call.respond("Hey, my name is $name, I am $age years old.")
         }
 
-        get (path = "/person"){
+        get(path = "/person") {
 
             try {
                 val voter = Voter(name = "Tonnie", stream = 13)
 
                 call.respond(message = voter, status = HttpStatusCode.OK)
-            }catch (e:Exception ){
+            } catch (e: Exception) {
                 call.respond(message = "${e.message}", status = HttpStatusCode.BadRequest)
 
             }
         }
 
 
-        get(path = "/redirect"){
+        get(path = "/redirect") {
 
             call.respondRedirect(url = "/moved", permanent = false)
         }
 
-        get(path = "/moved"){
+        get(path = "/moved") {
 
             call.respond(message = "Redirected successfully", status = HttpStatusCode.OK)
         }
 
 
-        static(remotePath = "assets") {
+        static {
 
             resources("static")
         }
 
         get(path = "/welcome") {
 
-            call.respondHtml{
+            //extract the name parameter
+            val name = call.request.queryParameters["name"]
+
+            call.respondHtml {
 
                 head {
-//add plus sign before text
-                    title{+"The Richest Man in Babylon"}
+                    //add plus sign before text
+                    title { +"The Richest Man in Babylon" }
                 }
 
                 body {
+                    //query parameters are optional
+                    if (!name.isNullOrBlank()) {
 
-                    h2 {+"The Richest Man in Babylon"  }
+                        h2 { +"Welcome, $name" }
+                    } else {
+                        h2 { +"Welcome!" }
+                    }
+
+
                     p { +"Arkad was the Richest Man in Baby who came with laws of prosperity" }
+                    p{+"Current Directory is: ${System.getProperty("user.dir")}"}
+
+                    //image tag, to retrieve from static folder
+                    img(src = "globe.jpg")
                 }
             }
         }
@@ -117,6 +130,5 @@ fun Application.module( ){
 }
 
 
-
 @Serializable
- data class Voter(val name:String, val stream:Int)
+data class Voter(val name: String, val stream: Int)
