@@ -11,8 +11,7 @@ import kotlinx.serialization.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.html.*
 import io.ktor.server.http.content.*
-import kotlinx.html.head
-import kotlinx.html.title
+import kotlinx.html.*
 
 fun main(){
 
@@ -100,8 +99,14 @@ fun Application.module( ){
             call.respondHtml{
 
                 head {
+//add plus sign before text
+                    title{+"The Richest Man in Babylon"}
+                }
 
-                    title{+"The River Between"}
+                body {
+
+                    h2 {+"The Richest Man in Babylon"  }
+                    p { +"Arkad was the Richest Man in Baby who came with laws of prosperity" }
                 }
             }
         }
