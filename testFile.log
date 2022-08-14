@@ -1,0 +1,46 @@
+2022-08-10 08:30:27 [main] TRACE Application - {
+    # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 8
+    # define module
+    "application" : {
+        # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 10
+        "modules" : [
+            # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 10
+            "com.uxstate.ApplicationKt.module"
+        ]
+    },
+    # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 4
+    # port to listen to/server will only respond to request via 8080 port
+    "deployment" : {
+        # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 4
+        "port" : 8080
+    },
+    # Content hidden
+    "security" : "***"
+}
+
+2022-08-10 08:30:27 [main] INFO  Application - Autoreload is disabled because the development mode is off.
+2022-08-10 08:30:27 [main] INFO  Application - Application started in 0.324 seconds.
+2022-08-10 08:30:27 [DefaultDispatcher-worker-1] INFO  Application - Responding at http://0.0.0.0:8080
+2022-08-10 08:31:16 [main] TRACE Application - {
+    # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 8
+    # define module
+    "application" : {
+        # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 10
+        "modules" : [
+            # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 10
+            "com.uxstate.ApplicationKt.module"
+        ]
+    },
+    # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 4
+    # port to listen to/server will only respond to request via 8080 port
+    "deployment" : {
+        # application.conf @ file:/D:/IdeaProjects/ServerDemo/build/resources/main/application.conf: 4
+        "port" : 8080
+    },
+    # Content hidden
+    "security" : "***"
+}
+
+2022-08-10 08:31:17 [main] INFO  Application - Autoreload is disabled because the development mode is off.
+2022-08-10 08:31:17 [main] INFO  Application - Application started in 0.333 seconds.
+2022-08-10 08:31:17 [DefaultDispatcher-worker-1] INFO  Application - Responding at http://0.0.0.0:8080
