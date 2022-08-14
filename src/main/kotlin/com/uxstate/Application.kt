@@ -9,6 +9,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.html.*
 import io.ktor.server.http.content.*
 
 fun main(){
@@ -90,6 +91,11 @@ fun Application.module( ){
         static(remotePath = "assets") {
 
             resources("static")
+        }
+
+        get(path = "/welcome") {
+
+            call.respondHtml{}
         }
 
 
