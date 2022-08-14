@@ -9,6 +9,8 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.http.content.*
+
 fun main(){
 
     embeddedServer(factory = Netty, port = 8080){
@@ -82,6 +84,31 @@ fun Application.module( ){
         get(path = "/moved"){
 
             call.respond(message = "Redirected successfully", status = HttpStatusCode.OK)
+        }
+
+
+        static {
+
+            resource("google.html")
+        }
+
+        static {
+
+            resource("twitter.html")
+        }
+
+        static {
+
+            resource("mobills.html")
+        }
+        static {
+
+            resource("text.txt")
+        }
+
+        static {
+
+            resource("globe.jpg")
         }
     }
 
