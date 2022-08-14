@@ -89,7 +89,7 @@ fun Application.module( ){
 
         static {
 
-            resource("google.html")
+            resource("static/google.html")
         }
 
         static {
@@ -103,12 +103,12 @@ fun Application.module( ){
         }
         static {
 
-            resource("text.txt")
+            resource("static/text.txt")
         }
 
         static {
 
-            resource("globe.jpg")
+            resource("static/globe.jpg")
         }
     }
 
