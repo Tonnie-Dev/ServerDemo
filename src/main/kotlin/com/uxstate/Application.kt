@@ -11,6 +11,8 @@ import kotlinx.serialization.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.html.*
 import io.ktor.server.http.content.*
+import kotlinx.html.head
+import kotlinx.html.title
 
 fun main(){
 
@@ -95,7 +97,13 @@ fun Application.module( ){
 
         get(path = "/welcome") {
 
-            call.respondHtml{}
+            call.respondHtml{
+
+                head {
+
+                    title{+"The River Between"}
+                }
+            }
         }
 
 
