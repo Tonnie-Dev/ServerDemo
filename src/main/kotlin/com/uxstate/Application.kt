@@ -89,27 +89,10 @@ fun Application.module( ){
 
         static {
 
-            resource("static/google.html")
+            resources("static")
         }
 
-        static {
 
-            resource("twitter.html")
-        }
-
-        static {
-
-            resource("mobills.html")
-        }
-        static {
-
-            resource("static/text.txt")
-        }
-
-        static {
-
-            resource("static/globe.jpg")
-        }
     }
 
 }
