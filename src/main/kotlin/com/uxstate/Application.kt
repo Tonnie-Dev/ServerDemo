@@ -15,7 +15,8 @@ import kotlinx.html.*
 
 fun main() {
 
-    embeddedServer(factory = Netty, port = 8080) {
+    embeddedServer(factory = Netty, port = 8080,developmentMode = true, watchPaths = listOf
+    ("classes", "resources")) {
         module()
         install(ContentNegotiation) {
 
@@ -125,6 +126,16 @@ fun Application.module() {
         }
 
 
+
+        get(path = "/tonn") {
+
+            call.respondText("Tonnie!!!")
+        }
+
+       /* get(path = "/muraguri") {
+
+            call.respondText("Muraguri!!!")
+        }*/
     }
 
 }

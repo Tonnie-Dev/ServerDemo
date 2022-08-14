@@ -44,6 +44,8 @@ dependencies {
     //for json() to work
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.3")
 
+
+
     //html builder
     //implementation("io.ktor:ktor-html-builder:2.0.3")
     implementation("io.ktor:ktor-server-html-builder:2.0.3")
